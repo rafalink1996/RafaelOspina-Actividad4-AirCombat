@@ -6,7 +6,7 @@ public class Missile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Destroy (this.gameObject, 5);
+		Destroy (this.gameObject, 10);
 	}
 	
 	// Update is called once per frame
@@ -24,11 +24,10 @@ public class Missile : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 
-		if (collision.collider.gameObject.tag == "Ally") {
+		if (collision.collider.gameObject.tag != "Enemy") {
 
-			GameObject son = collision.collider.gameObject.transform.Find ("LuzVerde").gameObject;
-
-			son.GetComponent <Light> ().color = new Color (0, 0, 1);
+			//GameObject son = collision.collider.gameObject.transform.Find ("LuzVerde").gameObject;
+			//son.GetComponent <Light> ().color = new Color (0, 0, 1);
 			Destroy (this.gameObject);
 
 		}
